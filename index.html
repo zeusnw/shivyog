@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ShivYog UK — Dedicated to Babaji Avdhoot Shivanand</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@200;300;400;500&family=Noto+Serif+Devanagari:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #fff8d6;
+    --parchment: #fff0a0;
+    --gold: #c47f17;
+    --gold-light: #f0c040;
+    --gold-dim: rgba(196,127,23,0.12);
+    --gold-border: rgba(196,127,23,0.3);
+    --saffron: #e8620a;
+    --saffron-dim: rgba(232,98,10,0.08);
+    --saffron-mid: rgba(232,98,10,0.2);
+    --red: #c0392b;
+    --lotus: #e8a0b4;
+    --lotus-dim: rgba(232,160,180,0.15);
+    --purple: #7b3f6e;
+    --purple-light: #9b5f8e;
+    --purple-dim: rgba(123,63,110,0.08);
+    --purple-mid: rgba(123,63,110,0.2);
+    --brown: #6b3a2a;
+    --text: #2c1810;
+    --text-mid: #5c3a28;
+    --text-muted: #9b7a68;
+    --white: #ffffff;
+    --border: rgba(196,127,23,0.25);
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'Jost', sans-serif;
+    --devanagari: 'Noto Serif Devanagari', serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── NOISE TEXTURE ── */
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none; z-index: 0; opacity: 0.4;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 34px; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.4rem 4rem;
+    background: rgba(250,247,242,0.92);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
+  .logo {
+    display: flex; flex-direction: column; text-decoration: none;
+  }
+  .logo-sanskrit {
+    font-family: var(--devanagari);
+    font-size: 0.75rem;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+    line-height: 1;
+  }
+  .logo-text {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text);
+    letter-spacing: 0.06em;
+    line-height: 1.1;
+  }
+  .logo-text span { color: var(--gold); }
+  .logo-sub {
+    font-family: var(--sans);
+    font-size: 0.6rem;
+    color: var(--text-muted);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+  .nav-links {
+    display: flex; gap: 2.5rem; list-style: none;
+  }
+  .nav-links a {
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    font-weight: 300;
+    color: var(--text-mid);
+    text-decoration: none;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: color 0.3s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-cta {
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid var(--gold-border);
+    padding: 0.6rem 1.4rem;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: background 0.3s, color 0.3s;
+  }
+  .nav-cta:hover {
+    background: var(--gold);
+    color: var(--white);
+  }
+  .nav-hamburger {
+    display: none; flex-direction: column; gap: 5px;
+    cursor: pointer; padding: 4px;
+  }
+  .nav-hamburger span {
+    width: 22px; height: 1px;
+    background: var(--text);
+    transition: 0.3s;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-left {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 12rem 4rem 6rem;
+    position: relative; z-index: 1;
+  }
+  .hero-right {
+    background: linear-gradient(135deg, #fff0a0 0%, #ffcc44 40%, #e8620a 100%);
+    position: relative; overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .hero-mandala {
+    position: absolute;
+    width: 90%; height: 90%;
+    opacity: 0.15;
+    animation: rotateMandala 60s linear infinite;
+  }
+  @keyframes rotateMandala {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  .hero-om {
+    font-family: var(--devanagari);
+    font-size: 12rem;
+    color: var(--brown);
+    opacity: 0.5;
+    position: relative; z-index: 1;
+    animation: fadeFloat 6s ease-in-out infinite;
+  }
+  @keyframes fadeFloat {
+    0%, 100% { transform: translateY(0); opacity: 0.5; }
+    50% { transform: translateY(-15px); opacity: 0.65; }
+  }
+  .hero-eyebrow {
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    font-weight: 300;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    display: flex; align-items: center; gap: 1rem;
+    animation: fadeUp 1s 0.2s both;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    width: 30px; height: 1px;
+    background: var(--gold);
+  }
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(3rem, 5vw, 5.5rem);
+    font-weight: 300;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    color: var(--text);
+    margin-bottom: 1.5rem;
+    animation: fadeUp 1s 0.4s both;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--purple);
+  }
+  .hero-desc {
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--text-mid);
+    max-width: 40ch;
+    line-height: 1.85;
+    margin-bottom: 3rem;
+    animation: fadeUp 1s 0.6s both;
+  }
+  .hero-actions {
+    display: flex; gap: 1rem; flex-wrap: wrap;
+    animation: fadeUp 1s 0.8s both;
+  }
+  .btn-primary {
+    background: var(--gold);
+    color: var(--white);
+    padding: 0.9rem 2.2rem;
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: opacity 0.3s, transform 0.3s;
+    display: inline-block;
+  }
+  .btn-primary:hover { opacity: 0.85; transform: translateY(-2px); }
+  .btn-secondary {
+    color: var(--purple);
+    padding: 0.9rem 2.2rem;
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1px solid var(--purple-mid);
+    border-radius: 2px;
+    transition: background 0.3s;
+    display: inline-block;
+  }
+  .btn-secondary:hover { background: var(--purple-dim); }
+  .hero-quote {
+    position: absolute; bottom: 3rem; left: 4rem;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    max-width: 36ch;
+    animation: fadeUp 1s 1s both;
+  }
+  .hero-quote::before {
+    content: '"';
+    font-size: 3rem;
+    color: var(--gold);
+    opacity: 0.4;
+    line-height: 0;
+    vertical-align: -0.8rem;
+    margin-right: 0.25rem;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── DIVIDER ── */
+  .om-divider {
+    display: flex; align-items: center; justify-content: center;
+    gap: 1.5rem; padding: 1.5rem 4rem;
+    background: var(--parchment);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    overflow: hidden;
+  }
+  .om-divider-text {
+    font-family: var(--devanagari);
+    font-size: 0.9rem;
+    color: var(--gold);
+    letter-spacing: 0.3em;
+    white-space: nowrap;
+  }
+  .om-line { flex: 1; height: 1px; background: var(--border); }
+
+  /* ── SECTIONS ── */
+  section { padding: 7rem 4rem; position: relative; }
+  .section-eyebrow {
+    font-family: var(--sans);
+    font-size: 0.68rem;
+    font-weight: 300;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+  .section-eyebrow::before {
+    content: '';
+    width: 20px; height: 1px;
+    background: var(--gold);
+  }
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 300;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    color: var(--text);
+    margin-bottom: 1.25rem;
+  }
+  .section-title em { font-style: italic; color: var(--purple); }
+  .section-desc {
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: var(--text-mid);
+    max-width: 54ch;
+    line-height: 1.85;
+  }
+
+  /* ── ABOUT ── */
+  #about { background: var(--white); }
+  .about-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+  .about-visual {
+    position: relative;
+    aspect-ratio: 4/5;
+    background: linear-gradient(160deg, #fff0a0 0%, #ffcc44 50%, #e8620a 100%);
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .about-visual-om {
+    font-family: var(--devanagari);
+    font-size: 10rem;
+    color: var(--brown);
+    opacity: 0.25;
+  }
+  .about-visual::after {
+    content: '';
+    position: absolute;
+    inset: 1.5rem;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 2px;
+    pointer-events: none;
+  }
+  .about-badge {
+    position: absolute;
+    bottom: 2rem; right: -1.5rem;
+    background: var(--gold);
+    color: var(--white);
+    padding: 1.25rem 1.5rem;
+    border-radius: 2px;
+    text-align: center;
+  }
+  .about-badge-num {
+    font-family: var(--serif);
+    font-size: 2.5rem;
+    font-weight: 600;
+    line-height: 1;
+  }
+  .about-badge-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    opacity: 0.85;
+    margin-top: 0.3rem;
+  }
+  .about-content .section-title { max-width: 18ch; }
+  .about-pillars { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 1.5rem; }
+  .pillar { display: flex; gap: 1.25rem; align-items: flex-start; }
+  .pillar-icon {
+    width: 40px; height: 40px; flex-shrink: 0;
+    border: 1px solid var(--gold-border);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--devanagari); font-size: 1rem; color: var(--gold);
+    margin-top: 2px;
+  }
+  .pillar h4 { font-family: var(--serif); font-size: 1.1rem; font-weight: 600; margin-bottom: 0.3rem; }
+  .pillar p { font-size: 0.85rem; color: var(--text-mid); line-height: 1.7; font-weight: 300; }
+
+  /* ── TEACHINGS ── */
+  #teachings { background: var(--cream); }
+  .teachings-intro { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 4rem; gap: 2rem; flex-wrap: wrap; }
+  .teachings-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
+  .teaching-card {
+    background: var(--white);
+    padding: 2.5rem;
+    transition: background 0.3s;
+    position: relative;
+    cursor: default;
+  }
+  .teaching-card:hover { background: var(--parchment); }
+  .teaching-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, var(--gold), var(--saffron));
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+  .teaching-card:hover::after { transform: scaleX(1); }
+  .teaching-num {
+    font-family: var(--serif);
+    font-size: 3.5rem;
+    font-weight: 300;
+    color: var(--gold);
+    opacity: 0.25;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+  .teaching-icon { font-family: var(--devanagari); font-size: 1.5rem; color: var(--gold); margin-bottom: 1rem; display: block; }
+  .teaching-card h3 { font-family: var(--serif); font-size: 1.3rem; font-weight: 600; margin-bottom: 0.75rem; line-height: 1.3; }
+  .teaching-card p { font-size: 0.85rem; color: var(--text-mid); line-height: 1.75; font-weight: 300; }
+
+  /* ── QUOTE BANNER ── */
+  .quote-banner {
+    background: var(--saffron);
+    padding: 6rem 4rem;
+    text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .quote-banner::before {
+    content: 'ॐ';
+    font-family: var(--devanagari);
+    font-size: 20rem;
+    color: rgba(255,255,255,0.03);
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+  .quote-banner blockquote {
+    font-family: var(--serif);
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--gold-light);
+    max-width: 22ch;
+    margin: 0 auto 1.5rem;
+    line-height: 1.4;
+    position: relative; z-index: 1;
+  }
+  .quote-banner cite {
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    font-weight: 300;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    position: relative; z-index: 1;
+  }
+
+  /* ── EVENTS ── */
+  #events { background: var(--white); }
+  .events-intro { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 4rem; flex-wrap: wrap; gap: 2rem; }
+  .events-list { display: flex; flex-direction: column; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
+  .event-row {
+    background: var(--white);
+    display: grid; grid-template-columns: 100px 1fr auto;
+    align-items: center; gap: 2rem;
+    padding: 2rem 2.5rem;
+    transition: background 0.25s;
+    cursor: default;
+    position: relative;
+  }
+  .event-row:hover { background: var(--parchment); }
+  .event-date {
+    text-align: center;
+    border-right: 1px solid var(--border);
+    padding-right: 2rem;
+  }
+  .event-day { font-family: var(--serif); font-size: 2.5rem; font-weight: 300; color: var(--gold); line-height: 1; }
+  .event-month { font-family: var(--sans); font-size: 0.65rem; font-weight: 300; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-muted); margin-top: 0.25rem; }
+  .event-info h4 { font-family: var(--serif); font-size: 1.2rem; font-weight: 600; margin-bottom: 0.3rem; }
+  .event-info p { font-size: 0.82rem; color: var(--text-muted); font-weight: 300; }
+  .event-meta { text-align: right; }
+  .event-type {
+    display: inline-block;
+    font-family: var(--sans); font-size: 0.6rem;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    padding: 4px 10px; border-radius: 20px;
+    margin-bottom: 0.5rem;
+  }
+  .event-type.online { background: var(--gold-dim); color: var(--gold); border: 1px solid var(--gold-border); }
+  .event-type.in-person { background: var(--purple-dim); color: var(--purple); border: 1px solid var(--purple-mid); }
+  .event-location { font-size: 0.78rem; color: var(--text-muted); font-weight: 300; }
+  .event-row a {
+    position: absolute; inset: 0;
+    z-index: 1;
+  }
+
+  /* ── BLOG ── */
+  #blog { background: var(--cream); }
+  .blog-intro { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 4rem; flex-wrap: wrap; gap: 2rem; }
+  .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+  .blog-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: default;
+  }
+  .blog-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(196,127,23,0.12); }
+  .blog-card-img {
+    height: 180px;
+    background: linear-gradient(135deg, #e8dcc8 0%, #c9a84c22 100%);
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+  .blog-card-img-symbol {
+    font-family: var(--devanagari);
+    font-size: 5rem;
+    color: var(--brown);
+    opacity: 0.2;
+  }
+  .blog-card-body { padding: 1.75rem; }
+  .blog-tag {
+    font-family: var(--sans); font-size: 0.6rem;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 0.75rem; display: block;
+  }
+  .blog-card h3 { font-family: var(--serif); font-size: 1.15rem; font-weight: 600; line-height: 1.35; margin-bottom: 0.75rem; }
+  .blog-card p { font-size: 0.82rem; color: var(--text-mid); line-height: 1.7; font-weight: 300; }
+  .blog-card-footer { padding: 0 1.75rem 1.75rem; display: flex; justify-content: space-between; align-items: center; }
+  .blog-author { font-size: 0.75rem; color: var(--text-muted); font-weight: 300; }
+  .blog-read { font-family: var(--sans); font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--purple); text-decoration: none; }
+
+  /* ── CONTACT ── */
+  #contact { background: var(--parchment); }
+  .contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; }
+  .contact-info { display: flex; flex-direction: column; gap: 2rem; margin-top: 2.5rem; }
+  .contact-item { display: flex; gap: 1rem; align-items: flex-start; }
+  .contact-item-icon {
+    width: 38px; height: 38px; flex-shrink: 0;
+    border: 1px solid var(--gold-border);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.85rem;
+  }
+  .contact-item h4 { font-family: var(--serif); font-size: 1rem; font-weight: 600; margin-bottom: 0.2rem; }
+  .contact-item p { font-size: 0.82rem; color: var(--text-mid); font-weight: 300; }
+  .contact-item a { color: var(--gold); text-decoration: none; font-size: 0.82rem; }
+  .contact-form-wrap { background: var(--white); border: 1px solid var(--border); border-radius: 4px; padding: 2.5rem; }
+  .form-eyebrow { font-family: var(--sans); font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.75rem; }
+  .form-group { margin-bottom: 1.25rem; }
+  .form-group label { display: block; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.4rem; font-weight: 300; }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    background: var(--parchment);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    padding: 0.75rem 1rem;
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 0.875rem;
+    font-weight: 300;
+    outline: none;
+    transition: border-color 0.25s;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus { border-color: var(--gold); }
+  .form-group textarea { resize: vertical; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #2c1810;
+    padding: 5rem 4rem 2rem;
+    color: rgba(255,255,255,0.7);
+  }
+  .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 4rem; padding-bottom: 3rem; border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 2rem; }
+  .footer-logo .logo-text { color: var(--gold-light); }
+  .footer-logo .logo-sub { color: rgba(255,255,255,0.35); }
+  .footer-brand-desc { font-size: 0.82rem; color: rgba(255,255,255,0.45); line-height: 1.75; margin-top: 1rem; max-width: 28ch; font-weight: 300; }
+  .footer-col h4 { font-family: var(--serif); font-size: 1rem; font-weight: 600; color: var(--gold-light); margin-bottom: 1.25rem; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+  .footer-col a { font-size: 0.8rem; color: rgba(255,255,255,0.45); text-decoration: none; font-weight: 300; transition: color 0.2s; }
+  .footer-col a:hover { color: var(--gold-light); }
+  .footer-bottom { display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem; color: rgba(255,255,255,0.3); flex-wrap: wrap; gap: 1rem; }
+  .footer-om { font-family: var(--devanagari); font-size: 1.2rem; color: var(--gold); opacity: 0.6; }
+
+  /* ── MOBILE ── */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+    .hero { grid-template-columns: 1fr; }
+    .hero-right { display: none; }
+    .hero-left { padding: 8rem 1.5rem 4rem; }
+    section { padding: 4rem 1.5rem; }
+    .about-layout { grid-template-columns: 1fr; gap: 3rem; }
+    .about-badge { right: 1rem; }
+    .teachings-grid { grid-template-columns: 1fr; }
+    .teachings-intro { flex-direction: column; }
+    .event-row { grid-template-columns: 70px 1fr; gap: 1rem; padding: 1.5rem; }
+    .event-meta { display: none; }
+    .blog-grid { grid-template-columns: 1fr; }
+    .contact-layout { grid-template-columns: 1fr; gap: 3rem; }
+    .footer-top { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .om-divider { padding: 1.25rem 1.5rem; }
+    .quote-banner { padding: 4rem 1.5rem; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+
+  /* Mobile menu */
+  .mobile-menu {
+    display: none; position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(250,247,242,0.98);
+    z-index: 200; flex-direction: column;
+    align-items: center; justify-content: center; gap: 2rem;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { font-family: var(--serif); font-size: 2rem; font-weight: 300; color: var(--text); text-decoration: none; transition: color 0.2s; }
+  .mobile-menu a:hover { color: var(--gold); }
+  .mobile-menu-close { position: absolute; top: 1.5rem; right: 1.5rem; font-size: 1.5rem; background: none; border: none; cursor: pointer; color: var(--text-muted); font-family: var(--sans); }
+</style>
+</head>
+<body>
+
+<!-- DEVOTEE BANNER -->
+<div style="background: var(--saffron); padding: 0.6rem 2rem; text-align:center; position:fixed; top:0; left:0; right:0; z-index:200; display:flex; align-items:center; justify-content:center; gap:1rem; flex-wrap:wrap;">
+  <span style="font-family:var(--sans); font-size:0.7rem; font-weight:300; letter-spacing:0.12em; color:rgba(255,255,255,0.75);">🙏 This is a devotee site by a humble Shivyogi — serving the teachings of</span>
+  <a href="https://shivyog.com" target="_blank" rel="noopener" style="font-family:var(--sans); font-size:0.7rem; font-weight:500; letter-spacing:0.12em; color:var(--gold-light); text-decoration:none; border-bottom:1px solid rgba(201,168,76,0.4); padding-bottom:1px;">Babaji Avdhoot Shivanand — Visit Official Site: shivyog.com →</a>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">
+    <span class="logo-sanskrit">शिव योग</span>
+    <span class="logo-text">Shiv<span>Yog</span></span>
+    <span class="logo-sub">United Kingdom</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#teachings">Teachings</a></li>
+    <li><a href="#events">Events</a></li>
+    <li><a href="#blog">Blog</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#events" class="nav-cta">Join a Session</a>
+  <div class="nav-hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu">
+  <button class="mobile-menu-close" onclick="toggleMenu()">✕</button>
+  <a href="#about" onclick="toggleMenu()">About</a>
+  <a href="#teachings" onclick="toggleMenu()">Teachings</a>
+  <a href="#events" onclick="toggleMenu()">Events</a>
+  <a href="#blog" onclick="toggleMenu()">Blog</a>
+  <a href="#contact" onclick="toggleMenu()">Contact</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-left">
+    <div class="hero-eyebrow">A Humble Shivyogi's Offering · UK Community</div>
+    <h1>In Service of<br><em>Babaji's</em><br>Teachings</h1>
+    <p class="hero-desc">This site is lovingly dedicated to sharing the sacred teachings of <strong>Dr. Avdhoot Shivanand Babaji</strong> with seekers across the United Kingdom. Created by a humble Shivyogi. All wisdom belongs to the Master.</p>
+    <div class="hero-actions">
+      <a href="https://shivyog.com" target="_blank" class="btn-primary">Visit Official shivyog.com →</a>
+      <a href="#events" class="btn-secondary">UK Sessions</a>
+    </div>
+    <div class="hero-quote">
+      This humble site is offered at the lotus feet of Babaji — may it serve all seekers on the path to the Infinite.
+    </div>
+  </div>
+  <div class="hero-right">
+    <svg class="hero-mandala" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="200" cy="200" r="180" stroke="#8b6914" stroke-width="0.5"/>
+      <circle cx="200" cy="200" r="140" stroke="#8b6914" stroke-width="0.5"/>
+      <circle cx="200" cy="200" r="100" stroke="#8b6914" stroke-width="0.5"/>
+      <circle cx="200" cy="200" r="60" stroke="#8b6914" stroke-width="0.5"/>
+      <circle cx="200" cy="200" r="20" stroke="#8b6914" stroke-width="1"/>
+      <line x1="200" y1="20" x2="200" y2="380" stroke="#8b6914" stroke-width="0.5"/>
+      <line x1="20" y1="200" x2="380" y2="200" stroke="#8b6914" stroke-width="0.5"/>
+      <line x1="73" y1="73" x2="327" y2="327" stroke="#8b6914" stroke-width="0.5"/>
+      <line x1="327" y1="73" x2="73" y2="327" stroke="#8b6914" stroke-width="0.5"/>
+      <polygon points="200,60 248,180 380,180 272,252 316,380 200,300 84,380 128,252 20,180 152,180" stroke="#8b6914" stroke-width="0.5" fill="none"/>
+      <polygon points="200,120 228,180 300,180 244,220 268,300 200,256 132,300 156,220 100,180 172,180" stroke="#8b6914" stroke-width="0.5" fill="none"/>
+    </svg>
+    <div class="hero-om">ॐ</div>
+  </div>
+</section>
+
+<!-- DIVIDER -->
+<div class="om-divider">
+  <div class="om-line"></div>
+  <div class="om-divider-text">ॐ नमः शिवाय · ॐ नमः शिवाय · ॐ नमः शिवाय</div>
+  <div class="om-line"></div>
+</div>
+
+<!-- BABAJI SECTION -->
+<section style="background:var(--parchment); padding:5rem 4rem; text-align:center; border-bottom:1px solid var(--border);">
+  <div style="max-width:700px; margin:0 auto;">
+    <div class="section-eyebrow" style="justify-content:center;">Our Beloved Master</div>
+    <h2 class="section-title" style="text-align:center;">Dr. Avdhoot Shivanand <em>Babaji</em></h2>
+    <p style="font-size:1rem; font-weight:300; color:var(--text-mid); line-height:1.85; margin-bottom:2rem;">Babaji is the founder of ShivYog — an Indian spiritual master, healer, and teacher who has dedicated his life to sharing the sacred secrets of the Himalayas with the world. His teachings on meditation, pranic healing, and self-realisation have transformed millions of lives across 30+ countries.</p>
+    <p style="font-family:var(--serif); font-style:italic; font-size:1.1rem; color:var(--purple); margin-bottom:2.5rem; line-height:1.7;">"The journey from finite to infinite is one that every human being must make. I am here to hold your hand and walk you to the final destination."</p>
+    <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+      <a href="https://shivyog.com" target="_blank" class="btn-primary">🌐 Visit Official shivyog.com</a>
+      <a href="https://shivyog.com/what-is-shivyog/" target="_blank" class="btn-secondary">Learn from Babaji →</a>
+    </div>
+    <div style="margin-top:2.5rem; padding-top:2rem; border-top:1px solid var(--border); display:flex; gap:2rem; justify-content:center; flex-wrap:wrap;">
+      <a href="https://shivyog.com" target="_blank" style="font-family:var(--sans); font-size:0.72rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-muted); text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">📖 Babaji's Teachings</a>
+      <a href="https://shivyog.com/act-now/" target="_blank" style="font-family:var(--sans); font-size:0.72rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-muted); text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">📅 Global Events</a>
+      <a href="https://shivyog.com" target="_blank" style="font-family:var(--sans); font-size:0.72rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-muted); text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">🌍 ShivYog Worldwide</a>
+      <a href="https://shivyog.com" target="_blank" style="font-family:var(--sans); font-size:0.72rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-muted); text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">📺 Watch Babaji</a>
+    </div>
+  </div>
+</section>
+
+<!-- DURGA DEVI SECTION -->
+<section style="background: linear-gradient(180deg, #fff8d6 0%, #fff0a0 40%, #ffe066 100%); padding:7rem 4rem; position:relative; overflow:hidden;">
+
+  <!-- Background lotus pattern -->
+  <div style="position:absolute; inset:0; opacity:0.06; pointer-events:none; display:flex; align-items:center; justify-content:center;">
+    <svg width="800" height="800" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="400" cy="400" r="380" stroke="#c47f17" stroke-width="1"/>
+      <circle cx="400" cy="400" r="300" stroke="#c47f17" stroke-width="1"/>
+      <circle cx="400" cy="400" r="220" stroke="#c47f17" stroke-width="1"/>
+      <circle cx="400" cy="400" r="140" stroke="#c47f17" stroke-width="1"/>
+      <circle cx="400" cy="400" r="60" stroke="#c47f17" stroke-width="2"/>
+      <line x1="400" y1="20" x2="400" y2="780" stroke="#c47f17" stroke-width="0.5"/>
+      <line x1="20" y1="400" x2="780" y2="400" stroke="#c47f17" stroke-width="0.5"/>
+      <line x1="131" y1="131" x2="669" y2="669" stroke="#c47f17" stroke-width="0.5"/>
+      <line x1="669" y1="131" x2="131" y2="669" stroke="#c47f17" stroke-width="0.5"/>
+      <line x1="20" y1="268" x2="780" y2="532" stroke="#c47f17" stroke-width="0.3"/>
+      <line x1="20" y1="532" x2="780" y2="268" stroke="#c47f17" stroke-width="0.3"/>
+      <line x1="268" y1="20" x2="532" y2="780" stroke="#c47f17" stroke-width="0.3"/>
+      <line x1="532" y1="20" x2="268" y2="780" stroke="#c47f17" stroke-width="0.3"/>
+    </svg>
+  </div>
+
+  <div style="text-align:center; margin-bottom:5rem; position:relative; z-index:1;">
+    <div class="section-eyebrow" style="justify-content:center;">Divine Mother</div>
+    <h2 class="section-title" style="text-align:center;">Jai Maa <em>Durga Devi</em></h2>
+    <p style="font-family:var(--devanagari); font-size:1.4rem; color:var(--saffron); margin-bottom:0.5rem;">या देवी सर्वभूतेषु शक्तिरूपेण संस्थिता</p>
+    <p style="font-family:var(--serif); font-style:italic; font-size:0.95rem; color:var(--text-mid); font-weight:300;">Yaa Devi Sarvabhuteshu Shakti-Rupena Samsthita</p>
+    <p style="font-size:0.82rem; color:var(--text-muted); margin-top:0.5rem; font-weight:300;">O Goddess who resides in all beings as Power — we bow to Her, we bow to Her, we bow to Her</p>
+  </div>
+
+  <!-- Three Divine Manifestations -->
+  <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:2rem; position:relative; z-index:1; max-width:1000px; margin:0 auto; align-items:start;">
+
+    <!-- Maa Durga — REAL IMAGE — Featured Centre -->
+    <div style="background:rgba(255,255,255,0.7); border:2px solid var(--gold); border-radius:8px; overflow:hidden; text-align:center; backdrop-filter:blur(8px); transform:scale(1.03); box-shadow:0 20px 60px rgba(196,127,23,0.3); grid-column:2; grid-row:1;">
+      <div style="background:var(--saffron); padding:6px; text-align:center;">
+        <span style="font-family:var(--sans); font-size:0.6rem; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.9);">Jai Maa Durga 🙏</span>
+      </div>
+      <div style="height:340px; position:relative; overflow:hidden;">
+        <img src="durga.png" alt="Maa Durga" style="width:100%; height:100%; object-fit:cover; object-position:top; filter:sepia(15%) contrast(1.05);">
+        <div style="position:absolute; bottom:0; left:0; right:0; height:80px; background:linear-gradient(to top, rgba(255,248,214,0.95), transparent);"></div>
+      </div>
+      <div style="padding:1.5rem;">
+        <div style="font-family:var(--devanagari); font-size:1.4rem; color:var(--saffron); margin-bottom:0.4rem;">दुर्गा माँ</div>
+        <h3 style="font-family:var(--serif); font-size:1.3rem; font-weight:600; margin-bottom:0.6rem;">Maa Durga</h3>
+        <p style="font-size:0.8rem; color:var(--text-mid); line-height:1.7; font-weight:300;">The invincible — Shakti in her warrior form. Riding the lion, she destroys the ego and all that separates us from the Divine.</p>
+      </div>
+    </div>
+    <div style="background:rgba(255,255,255,0.7); border:1px solid var(--gold-border); border-radius:8px; overflow:hidden; text-align:center; backdrop-filter:blur(8px);">
+      <div style="background:var(--gold); padding:6px; text-align:center;">
+        <span style="font-family:var(--sans); font-size:0.6rem; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.9);">Adi Shakti 🙏</span>
+      </div>
+      <div style="height:340px; position:relative; overflow:hidden;">
+        <img src="durga2.png" alt="Maa Durga Adi Shakti" style="width:100%; height:100%; object-fit:cover; object-position:top;">
+        <div style="position:absolute; bottom:0; left:0; right:0; height:80px; background:linear-gradient(to top, rgba(255,248,214,0.95), transparent);"></div>
+      </div>
+            
+      <div style="padding:1.5rem;">
+        <div style="font-family:var(--devanagari); font-size:1.2rem; color:var(--saffron); margin-bottom:0.4rem;">आदि शक्ति</div>
+        <h3 style="font-family:var(--serif); font-size:1.2rem; font-weight:600; margin-bottom:0.6rem;">Adi Shakti — Divine Mother</h3>
+        <p style="font-size:0.8rem; color:var(--text-mid); line-height:1.7; font-weight:300;">The primordial power — the source of all creation. She is consciousness itself, the very force that animates the universe.</p>
+      </div>
+    </div>
+
+    <!-- Saraswati -->
+    <div style="background:rgba(255,255,255,0.7); border:1px solid var(--gold-border); border-radius:8px; overflow:hidden; text-align:center; backdrop-filter:blur(8px);">
+      <div style="height:300px; background:linear-gradient(180deg, #e8f4ff 0%, #b8d8f0 50%, #7b3f6e 100%); display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;">
+        <!-- Saraswati SVG -->
+        <svg width="180" height="260" viewBox="0 0 180 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Halo -->
+          <circle cx="90" cy="70" r="55" stroke="#c47f17" stroke-width="1.5" fill="rgba(255,255,255,0.2)"/>
+          <circle cx="90" cy="70" r="48" stroke="#c47f17" stroke-width="0.8" stroke-dasharray="4 2"/>
+          <!-- Crown/headpiece with veena hint -->
+          <path d="M68 44 L72 30 L82 40 L90 26 L98 40 L108 30 L112 44" stroke="#c47f17" stroke-width="2" fill="rgba(255,255,255,0.3)" stroke-linejoin="round"/>
+          <!-- White garment body -->
+          <path d="M66 96 Q90 108 114 96 L118 182 Q90 196 62 182 Z" fill="rgba(255,255,255,0.4)" stroke="#7b3f6e" stroke-width="1"/>
+          <!-- Face -->
+          <ellipse cx="90" cy="70" rx="22" ry="26" fill="rgba(255,230,200,0.7)" stroke="#c47f17" stroke-width="1"/>
+          <circle cx="90" cy="57" r="2" fill="#c0392b"/>
+          <ellipse cx="82" cy="66" rx="5" ry="3.5" fill="#1a0a00" opacity="0.7"/>
+          <ellipse cx="98" cy="66" rx="5" ry="3.5" fill="#1a0a00" opacity="0.7"/>
+          <!-- Veena (instrument) -->
+          <path d="M28 80 Q28 160 35 200" stroke="#c47f17" stroke-width="3" stroke-linecap="round"/>
+          <ellipse cx="32" cy="195" rx="10" ry="7" fill="rgba(196,127,23,0.3)" stroke="#c47f17" stroke-width="1.5"/>
+          <line x1="28" y1="100" x2="60" y2="115" stroke="#c47f17" stroke-width="1" stroke-dasharray="2 3"/>
+          <line x1="28" y1="115" x2="60" y2="128" stroke="#c47f17" stroke-width="1" stroke-dasharray="2 3"/>
+          <!-- 4 Arms -->
+          <line x1="66" y1="96" x2="30" y2="78" stroke="#c47f17" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="66" y1="110" x2="28" y2="108" stroke="#c47f17" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="114" y1="96" x2="150" y2="78" stroke="#c47f17" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="114" y1="110" x2="152" y2="108" stroke="#c47f17" stroke-width="1.5" stroke-linecap="round"/>
+          <!-- Book in hand -->
+          <rect x="140" y="72" width="16" height="12" rx="2" fill="rgba(196,127,23,0.4)" stroke="#c47f17" stroke-width="1"/>
+          <!-- Swan -->
+          <path d="M60 235 Q75 220 90 228 Q105 220 120 235" stroke="#c47f17" stroke-width="1.5" fill="rgba(255,255,255,0.5)"/>
+          <ellipse cx="90" cy="238" rx="35" ry="10" fill="rgba(255,255,255,0.3)" stroke="#c47f17" stroke-width="1"/>
+        </svg>
+        <div style="position:absolute; bottom:0; left:0; right:0; height:60px; background:linear-gradient(to top, rgba(255,248,214,0.9), transparent);"></div>
+      </div>
+      <div style="padding:1.5rem;">
+        <div style="font-family:var(--devanagari); font-size:1.2rem; color:var(--purple); margin-bottom:0.4rem;">सरस्वती</div>
+        <h3 style="font-family:var(--serif); font-size:1.2rem; font-weight:600; margin-bottom:0.6rem;">Maa Saraswati</h3>
+        <p style="font-size:0.8rem; color:var(--text-mid); line-height:1.7; font-weight:300;">Goddess of wisdom, knowledge, and the arts — she illuminates the path of the seeker with the light of divine understanding.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Durga Shloka -->
+  <div style="text-align:center; margin-top:4rem; position:relative; z-index:1;">
+    <p style="font-family:var(--devanagari); font-size:1.1rem; color:var(--saffron); line-height:2; margin-bottom:0.5rem;">नमस्तस्यै नमस्तस्यै नमस्तस्यै नमो नमः</p>
+    <p style="font-family:var(--serif); font-style:italic; font-size:0.85rem; color:var(--text-muted); font-weight:300;">Namastasyai Namastasyai Namastasyai Namo Namah</p>
+    <p style="font-size:0.78rem; color:var(--text-muted); margin-top:0.4rem; font-weight:300;">We bow to Her, we bow to Her, we bow to Her again and again</p>
+  </div>
+
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-layout">
+    <div class="about-visual">
+      <div class="about-visual-om">ॐ</div>
+      <div class="about-badge">
+        <div class="about-badge-num">25+</div>
+        <div class="about-badge-label">Years of Teachings</div>
+      </div>
+    </div>
+    <div class="about-content">
+      <div class="section-eyebrow">What is ShivYog</div>
+      <h2 class="section-title">A Path From the<br><em>Finite to the Infinite</em></h2>
+      <p class="section-desc">ShivYog is an ancient spiritual science — a journey inward towards the source of infinite potential that lies dormant within every human being. It is not a religion. It is a direct experience of consciousness.</p>
+      <div class="about-pillars">
+        <div class="pillar">
+          <div class="pillar-icon">ध्</div>
+          <div>
+            <h4>Dhyan — Deep Meditation</h4>
+            <p>Ancient techniques to quieten the mind and access states of profound stillness, healing, and awareness that lie beyond ordinary thought.</p>
+          </div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">प्र</div>
+          <div>
+            <h4>Prana — Life Force Healing</h4>
+            <p>Learn to channel and direct prana — life force energy — to heal the physical body, clear karmic blocks, and elevate your state of being.</p>
+          </div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">सि</div>
+          <div>
+            <h4>Siddha — Mastery of Self</h4>
+            <p>The ultimate goal of ShivYog — self-realisation. The awakening to your true nature as infinite, boundless consciousness.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEACHINGS -->
+<section id="teachings">
+  <div class="teachings-intro">
+    <div>
+      <div class="section-eyebrow">Core Teachings</div>
+      <h2 class="section-title">The ShivYog<br><em>Path</em></h2>
+    </div>
+    <p class="section-desc">Six pillars of transformation that take the seeker from mindfulness to self-realisation, step by gentle step.</p>
+  </div>
+  <div class="teachings-grid">
+    <div class="teaching-card">
+      <div class="teaching-num">01</div>
+      <span class="teaching-icon">ॐ</span>
+      <h3>Mindfulness & Presence</h3>
+      <p>Most humans live on autopilot. ShivYog begins by gently awakening awareness — teaching us to be fully present in each moment, free from the tyranny of unconscious thought.</p>
+    </div>
+    <div class="teaching-card">
+      <div class="teaching-num">02</div>
+      <span class="teaching-icon">श्री</span>
+      <h3>Shri Vidya Sadhana</h3>
+      <p>The sacred practice of Advait Shri Vidya — a profound meditative discipline transmitted in an unbroken lineage from the Himalayan masters to sincere seekers.</p>
+    </div>
+    <div class="teaching-card">
+      <div class="teaching-num">03</div>
+      <span class="teaching-icon">प्र</span>
+      <h3>Pranic Healing</h3>
+      <p>Ancient healing modalities that work directly with the subtle body — clearing energy blockages, releasing stored trauma, and restoring the natural flow of life force.</p>
+    </div>
+    <div class="teaching-card">
+      <div class="teaching-num">04</div>
+      <span class="teaching-icon">क</span>
+      <h3>Karma Dissolution</h3>
+      <p>Understanding and consciously dissolving karmic patterns that perpetuate suffering — transforming unconscious cycles into conscious evolution and genuine freedom.</p>
+    </div>
+    <div class="teaching-card">
+      <div class="teaching-num">05</div>
+      <span class="teaching-icon">भक्</span>
+      <h3>Bhakti — Devotion</h3>
+      <p>The path of the heart. Bhakti dissolves the ego through love — opening the seeker to a direct experience of grace that transcends intellectual understanding.</p>
+    </div>
+    <div class="teaching-card">
+      <div class="teaching-num">06</div>
+      <span class="teaching-icon">मु</span>
+      <h3>Mukti — Liberation</h3>
+      <p>The culmination of the ShivYog path — abiding in the state of pure awareness, beyond birth and death, suffering and seeking. This is your true nature.</p>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE BANNER -->
+<div class="quote-banner">
+  <blockquote>The journey from finite to infinite is one that every human being must make.</blockquote>
+  <cite>— Dr. Avdhoot Shivanand Babaji</cite>
+  <div style="margin-top:2.5rem;">
+    <a href="https://shivyog.com" target="_blank" style="font-family:var(--sans); font-size:0.75rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold-light); border:1px solid rgba(201,168,76,0.4); padding:0.75rem 2rem; border-radius:2px; text-decoration:none; display:inline-block; transition:background 0.3s;" onmouseover="this.style.background='rgba(201,168,76,0.15)'" onmouseout="this.style.background='transparent'">Learn directly from Babaji at shivyog.com →</a>
+  </div>
+</div>
+
+<!-- EVENTS -->
+<section id="events">
+  <div class="events-intro">
+    <div>
+      <div class="section-eyebrow">Upcoming Sessions</div>
+      <h2 class="section-title">Join Us<br><em>in Practice</em></h2>
+    </div>
+    <a href="#contact" class="btn-primary">Register Interest</a>
+  </div>
+  <div class="events-list">
+    <div class="event-row">
+      <a href="#contact"></a>
+      <div class="event-date">
+        <div class="event-day">14</div>
+        <div class="event-month">Jun 2025</div>
+      </div>
+      <div class="event-info">
+        <h4>Introduction to ShivYog Meditation</h4>
+        <p>A gentle, welcoming session for newcomers. No prior experience required. Open to all.</p>
+      </div>
+      <div class="event-meta">
+        <div class="event-type online">Online</div>
+        <div class="event-location">Zoom · 7:00 PM BST</div>
+      </div>
+    </div>
+    <div class="event-row">
+      <a href="#contact"></a>
+      <div class="event-date">
+        <div class="event-day">21</div>
+        <div class="event-month">Jun 2025</div>
+      </div>
+      <div class="event-info">
+        <h4>Summer Solstice Sadhana — Healing & Meditation</h4>
+        <p>A special two-hour practice to coincide with the summer solstice. Deep meditation, mantra, and pranic healing.</p>
+      </div>
+      <div class="event-meta">
+        <div class="event-type in-person">In Person</div>
+        <div class="event-location">London · 6:00 AM BST</div>
+      </div>
+    </div>
+    <div class="event-row">
+      <a href="#contact"></a>
+      <div class="event-date">
+        <div class="event-day">05</div>
+        <div class="event-month">Jul 2025</div>
+      </div>
+      <div class="event-info">
+        <h4>Shri Vidya Sadhana Workshop — Level 1</h4>
+        <p>A full-day immersive workshop in the foundational practices of Advait Shri Vidya for committed seekers.</p>
+      </div>
+      <div class="event-meta">
+        <div class="event-type in-person">In Person</div>
+        <div class="event-location">Birmingham · 9:00 AM BST</div>
+      </div>
+    </div>
+    <div class="event-row">
+      <a href="#contact"></a>
+      <div class="event-date">
+        <div class="event-day">19</div>
+        <div class="event-month">Jul 2025</div>
+      </div>
+      <div class="event-info">
+        <h4>Monthly Satsang — Community Gathering</h4>
+        <p>Monthly gathering of the UK ShivYog community. Meditation, sharing, and collective practice.</p>
+      </div>
+      <div class="event-meta">
+        <div class="event-type online">Online</div>
+        <div class="event-location">Zoom · 6:30 PM BST</div>
+      </div>
+    </div>
+    <div class="event-row">
+      <a href="#contact"></a>
+      <div class="event-date">
+        <div class="event-day">09</div>
+        <div class="event-month">Aug 2025</div>
+      </div>
+      <div class="event-info">
+        <h4>Karma & Consciousness — Weekend Retreat</h4>
+        <p>A transformational two-day residential retreat exploring the science of karma, healing, and liberation.</p>
+      </div>
+      <div class="event-meta">
+        <div class="event-type in-person">In Person</div>
+        <div class="event-location">Cotswolds · Full Weekend</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section id="blog">
+  <div class="blog-intro">
+    <div>
+      <div class="section-eyebrow">Wisdom & Insights</div>
+      <h2 class="section-title">From the<br><em>Blog</em></h2>
+    </div>
+    <a href="#contact" class="btn-secondary">Subscribe to Updates</a>
+  </div>
+  <div class="blog-grid">
+    <div class="blog-card">
+      <div class="blog-card-img">
+        <div class="blog-card-img-symbol">ॐ</div>
+      </div>
+      <div class="blog-card-body">
+        <span class="blog-tag">Meditation</span>
+        <h3>Why Modern Science is Finally Catching Up with Ancient Meditation</h3>
+        <p>Neuroscience is now confirming what ShivYog masters have known for centuries — deep meditation literally rewires the brain, reducing stress hormones and expanding states of consciousness.</p>
+      </div>
+      <div class="blog-card-footer">
+        <span class="blog-author">ShivYog UK · May 2025</span>
+        <a href="#contact" class="blog-read">Read →</a>
+      </div>
+    </div>
+    <div class="blog-card">
+      <div class="blog-card-img">
+        <div class="blog-card-img-symbol">श्री</div>
+      </div>
+      <div class="blog-card-body">
+        <span class="blog-tag">Healing</span>
+        <h3>Understanding Prana: The Life Force That Governs Health and Vitality</h3>
+        <p>Everything in the universe is energy. Prana — the Sanskrit word for life force — is the subtle energy that animates the physical body. When prana flows freely, health and vitality are natural.</p>
+      </div>
+      <div class="blog-card-footer">
+        <span class="blog-author">ShivYog UK · Apr 2025</span>
+        <a href="#contact" class="blog-read">Read →</a>
+      </div>
+    </div>
+    <div class="blog-card">
+      <div class="blog-card-img">
+        <div class="blog-card-img-symbol">क</div>
+      </div>
+      <div class="blog-card-body">
+        <span class="blog-tag">Karma</span>
+        <h3>Breaking Free: How to Dissolve Karmic Patterns That Keep You Stuck</h3>
+        <p>Karma is not punishment — it is the law of cause and effect playing out across lifetimes. ShivYog offers precise, practical techniques to consciously dissolve karmic imprints and reclaim your freedom.</p>
+      </div>
+      <div class="blog-card-footer">
+        <span class="blog-author">ShivYog UK · Mar 2025</span>
+        <a href="#contact" class="blog-read">Read →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-layout">
+    <div>
+      <div class="section-eyebrow">Connect With Us</div>
+      <h2 class="section-title">Begin Your<br><em>Journey</em></h2>
+      <p class="section-desc">Whether you are taking your first step or deepening an existing practice — we welcome you with open arms. Reach out and we will guide you.</p>
+      <div class="contact-info">
+        <div class="contact-item">
+          <div class="contact-item-icon">📧</div>
+          <div>
+            <h4>Email</h4>
+            <a href="mailto:info@shivyog.co.uk">info@shivyog.co.uk</a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">🙏</div>
+          <div>
+            <h4>About This Site</h4>
+            <p>Run by a humble Shivyogi in the UK, dedicated solely to serving Babaji's mission</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contact-form-wrap">
+      <div class="form-eyebrow">// Send a message</div>
+      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <div class="form-row">
+          <div class="form-group">
+            <label>First Name</label>
+            <input type="text" name="first_name" placeholder="Your first name" required>
+          </div>
+          <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" name="last_name" placeholder="Your last name">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" name="email" placeholder="you@email.com" required>
+        </div>
+        <div class="form-group">
+          <label>I am interested in</label>
+          <select name="interest">
+            <option value="" disabled selected>Select an option...</option>
+            <option>Attending a meditation session</option>
+            <option>Learning about ShivYog</option>
+            <option>Pranic healing</option>
+            <option>Upcoming events & retreats</option>
+            <option>Joining the UK forum</option>
+            <option>Something else</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea name="message" rows="4" placeholder="Tell us about yourself and how we can help..."></textarea>
+        </div>
+        <button type="submit" class="btn-primary" style="width:100%; text-align:center; border:none; cursor:pointer; font-size:0.75rem;">Send Message 🙏</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <div class="logo-sanskrit" style="color:var(--gold); font-family:var(--devanagari); font-size:0.75rem; letter-spacing:0.1em;">शिव योग</div>
+        <div class="logo-text" style="font-family:var(--serif); font-size:1.4rem; font-weight:300; color:var(--gold-light); letter-spacing:0.06em;">ShivYog <span style="color:rgba(255,255,255,0.5);">UK</span></div>
+      </div>
+      <p class="footer-brand-desc">Bringing the ancient wisdom of ShivYog to seekers across the United Kingdom — through meditation, healing, and community.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="#about">What is ShivYog</a></li>
+        <li><a href="#teachings">Teachings</a></li>
+        <li><a href="#events">Upcoming Events</a></li>
+        <li><a href="#blog">Blog & Wisdom</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Practice</h4>
+      <ul>
+        <li><a href="#contact">Meditation Sessions</a></li>
+        <li><a href="#contact">Pranic Healing</a></li>
+        <li><a href="#contact">Shri Vidya Sadhana</a></li>
+        <li><a href="#contact">Retreats</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="mailto:info@shivyog.co.uk">info@shivyog.co.uk</a></li>
+        <li><a href="#contact">Join the Forum</a></li>
+        <li><a href="#contact">Newsletter</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 ShivYog UK · A devotee site by a humble Shivyogi 🙏</span>
+    <span class="footer-om">ॐ</span>
+    <span>Official site: <a href="https://shivyog.com" target="_blank" style="color:var(--gold); text-decoration:none;">shivyog.com</a></span>
+  </div>
+  <div style="text-align:center; margin-top:1.5rem; padding-top:1.5rem; border-top:1px solid rgba(255,255,255,0.05);">
+    <p style="font-size:0.72rem; color:rgba(255,255,255,0.25); font-weight:300; max-width:60ch; margin:0 auto; line-height:1.7;">This is an independent devotee website created by a humble Shivyogi to serve UK seekers. All teachings and content belong to <a href="https://shivyog.com" target="_blank" style="color:rgba(201,168,76,0.5); text-decoration:none;">Dr. Avdhoot Shivanand and shivyog.com</a>. This site is not officially affiliated with the ShivYog Foundation.</p>
+  </div>
+</footer>
+
+<script>
+  function toggleMenu() {
+    document.getElementById('mobile-menu').classList.toggle('open');
+  }
+</script>
+</body>
+</html>
