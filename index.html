@@ -1498,5 +1498,102 @@
     document.getElementById('mobile-menu').classList.toggle('open');
   }
 </script>
+
+<!-- COOKIE CONSENT BANNER -->
+<div id="cookie-consent" style="position:fixed; bottom:0; left:0; right:0; z-index:99999; background:rgba(26,14,6,0.97); border-top:1px solid rgba(139,94,10,0.4); padding:1.25rem 2rem; display:none; align-items:center; justify-content:space-between; gap:1.5rem; flex-wrap:wrap; backdrop-filter:blur(12px); box-shadow:0 -4px 30px rgba(0,0,0,0.3);">
+  <div style="display:flex; align-items:flex-start; gap:1rem; flex:1; min-width:280px;">
+    <div style="font-size:1.2rem; flex-shrink:0;">🙏</div>
+    <div>
+      <div style="font-family:'Jost',sans-serif; font-size:0.85rem; font-weight:600; color:#f5e6c8; margin-bottom:0.3rem;">We use cookies</div>
+      <div style="font-size:0.75rem; color:rgba(245,230,200,0.5); line-height:1.6; max-width:60ch;">We use cookies to enhance your experience and analyse site traffic in accordance with <strong style="color:rgba(245,230,200,0.8);">UK GDPR</strong>. By clicking <strong style="color:rgba(245,230,200,0.8);">"Accept All"</strong> you consent to our use of cookies. You may withdraw consent at any time.</div>
+    </div>
+  </div>
+  <div style="display:flex; gap:0.75rem; flex-shrink:0; flex-wrap:wrap;">
+    <button onclick="rejectCookies()" style="background:transparent; border:1px solid rgba(139,94,10,0.4); color:rgba(245,230,200,0.6); font-family:'Jost',sans-serif; font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; padding:0.6rem 1.2rem; border-radius:2px; cursor:pointer;">Reject All</button>
+    <button onclick="manageCookies()" style="background:transparent; border:1px solid rgba(139,94,10,0.4); color:rgba(245,230,200,0.6); font-family:'Jost',sans-serif; font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; padding:0.6rem 1.2rem; border-radius:2px; cursor:pointer;">Manage Options</button>
+    <button onclick="acceptCookies()" style="background:#8b5e0a; border:none; color:#fff; font-family:'Jost',sans-serif; font-size:0.72rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; padding:0.6rem 1.5rem; border-radius:2px; cursor:pointer;">Accept All</button>
+  </div>
+</div>
+
+<!-- COOKIE MODAL -->
+<div id="cookie-modal" style="display:none; position:fixed; inset:0; z-index:999999; background:rgba(0,0,0,0.7); backdrop-filter:blur(4px); align-items:center; justify-content:center;">
+  <div style="background:#1a0e06; border:1px solid rgba(139,94,10,0.3); border-radius:8px; padding:2rem; max-width:500px; width:90%; max-height:90vh; overflow-y:auto;">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem;">
+      <div style="font-family:'Cormorant Garamond',serif; font-size:1.2rem; font-weight:600; color:#f5e6c8;">Cookie Preferences</div>
+      <button onclick="closeCookieModal()" style="background:transparent; border:none; color:rgba(245,230,200,0.4); font-size:1.2rem; cursor:pointer;">✕</button>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:1rem;">
+      <div style="background:rgba(139,94,10,0.06); border:1px solid rgba(139,94,10,0.2); border-radius:4px; padding:1rem;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
+          <div style="font-family:'Jost',sans-serif; font-size:0.85rem; font-weight:600; color:#f5e6c8;">Strictly Necessary</div>
+          <div style="font-size:0.7rem; color:#8b5e0a;">Always Active</div>
+        </div>
+        <div style="font-size:0.75rem; color:rgba(245,230,200,0.4); line-height:1.6;">Essential for the website to function. Cannot be disabled.</div>
+      </div>
+      <div style="background:rgba(139,94,10,0.06); border:1px solid rgba(139,94,10,0.2); border-radius:4px; padding:1rem;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
+          <div style="font-family:'Jost',sans-serif; font-size:0.85rem; font-weight:600; color:#f5e6c8;">Analytics</div>
+          <span id="analytics-slider" data-on="false" onclick="toggleCookie('analytics')" style="display:inline-block; width:44px; height:24px; background:rgba(255,255,255,0.1); border-radius:24px; cursor:pointer; position:relative; transition:0.3s;"></span>
+        </div>
+        <div style="font-size:0.75rem; color:rgba(245,230,200,0.4); line-height:1.6;">Help us understand how visitors use this site. All data anonymised via Google Analytics.</div>
+      </div>
+      <div style="background:rgba(139,94,10,0.06); border:1px solid rgba(139,94,10,0.2); border-radius:4px; padding:1rem;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
+          <div style="font-family:'Jost',sans-serif; font-size:0.85rem; font-weight:600; color:#f5e6c8;">Advertising (AdSense)</div>
+          <span id="marketing-slider" data-on="false" onclick="toggleCookie('marketing')" style="display:inline-block; width:44px; height:24px; background:rgba(255,255,255,0.1); border-radius:24px; cursor:pointer; position:relative; transition:0.3s;"></span>
+        </div>
+        <div style="font-size:0.75rem; color:rgba(245,230,200,0.4); line-height:1.6;">Google AdSense personalised advertising. Supports the running of this free seva site.</div>
+      </div>
+    </div>
+    <div style="display:flex; gap:0.75rem; margin-top:1.5rem; justify-content:flex-end;">
+      <button onclick="rejectCookies()" style="background:transparent; border:1px solid rgba(139,94,10,0.3); color:rgba(245,230,200,0.5); font-family:'Jost',sans-serif; font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; padding:0.6rem 1.2rem; border-radius:2px; cursor:pointer;">Reject All</button>
+      <button onclick="savePreferences()" style="background:#8b5e0a; border:none; color:#fff; font-family:'Jost',sans-serif; font-size:0.72rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; padding:0.6rem 1.5rem; border-radius:2px; cursor:pointer;">Save Preferences</button>
+    </div>
+    <div style="margin-top:1.25rem; padding-top:1rem; border-top:1px solid rgba(139,94,10,0.15); font-size:0.7rem; color:rgba(245,230,200,0.25); line-height:1.6;">
+      In accordance with UK GDPR and PECR. ShivYog.co.uk — a humble devotee seva site. 🙏
+    </div>
+  </div>
+</div>
+
+<script>
+const COOKIE_KEY = 'shivyog_consent';
+function setCookie(name, value, days) {
+  const d = new Date(); d.setTime(d.getTime() + days*24*60*60*1000);
+  document.cookie = name + '=' + encodeURIComponent(value) + ';expires=' + d.toUTCString() + ';path=/;SameSite=Lax';
+}
+function getCookie(name) {
+  const v = document.cookie.match('(^|;)\s*' + name + '\s*=\s*([^;]+)');
+  return v ? decodeURIComponent(v.pop()) : '';
+}
+function hideBanner() {
+  const b = document.getElementById('cookie-consent');
+  if (b) { b.style.transform = 'translateY(100%)'; b.style.transition = 'transform 0.4s ease'; setTimeout(() => b.style.display='none', 400); }
+}
+function acceptCookies() { setCookie(COOKIE_KEY, 'all', 365); hideBanner(); closeCookieModal(); }
+function rejectCookies() { setCookie(COOKIE_KEY, 'necessary', 365); hideBanner(); closeCookieModal(); }
+function manageCookies() { document.getElementById('cookie-modal').style.display = 'flex'; }
+function closeCookieModal() { document.getElementById('cookie-modal').style.display = 'none'; }
+function toggleCookie(type) {
+  const s = document.getElementById(type + '-slider');
+  const isOn = s.dataset.on === 'true';
+  s.dataset.on = String(!isOn);
+  s.style.background = !isOn ? '#8b5e0a' : 'rgba(255,255,255,0.1)';
+}
+function savePreferences() {
+  const analytics = document.getElementById('analytics-slider').dataset.on === 'true';
+  const marketing = document.getElementById('marketing-slider').dataset.on === 'true';
+  setCookie(COOKIE_KEY, JSON.stringify({necessary:true, analytics, marketing}), 365);
+  hideBanner(); closeCookieModal();
+}
+window.addEventListener('load', function() {
+  const b = document.getElementById('cookie-consent');
+  if (!getCookie(COOKIE_KEY)) { if(b) b.style.display = 'flex'; }
+  else { if(b) b.style.display = 'none'; }
+});
+document.getElementById('cookie-modal').addEventListener('click', function(e) {
+  if (e.target === this) closeCookieModal();
+});
+</script>
+
 </body>
 </html>
